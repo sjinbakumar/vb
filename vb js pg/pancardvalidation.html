@@ -1,0 +1,100 @@
+<html>
+<head>
+<script>
+function ValidatePAN() { 
+	var fname = document.forms["pan"]["fname"];
+	var lname = document.forms["pan"]["lname"];
+	var mobile = document.forms["pan"]["mobile"];
+	var add = document.forms["pan"]["add"];
+	var email = document.forms["pan"]["email"];
+	var textPanNo = document.forms["pan"]["textPanNo"];
+	if (fname.value == "")                                 
+    {
+window.alert("Please enter your First Name.");
+name.focus();
+return false;
+    }
+	if (lname.value == "")                                 
+    {
+window.alert("Please enter your Last Name.");
+name.focus();
+return false;
+    }
+		if (mobile.value == "")                                 
+    {
+window.alert("Please enter your Mobile Number.");
+name.focus();
+return false;
+    }
+		if (add.value == "")                                 
+    {
+window.alert("Please enter your Address.");
+name.focus();
+return false;
+    }
+		if (email.value == "")                                 
+    {
+window.alert("Please enter your e-mail ID.");
+name.focus();
+return false;
+    }
+		if (textPanNo.value == "")                                 
+    {
+window.alert("Please enter your Pan Card Number.");
+name.focus();
+return false;
+    }
+var Obj = document.getElementById("textPanNo");
+if (Obj.value != "") {
+ObjVal = Obj.value;
+var panPat = /^([a-zA-Z]{5})(\d{4})([A-Z]{1})$/;
+if (ObjVal.search(panPat) == -1) {
+alert("Invalid Pan No");
+Obj.focus();
+return false;
+            } 
+else
+            {
+alert("Correct Pan No");
+              }
+        }
+  } 
+</script>
+</head>
+<body bgcolor="wheat">
+<table bgcolor="darkslategrey" width=100%>
+<tr>
+
+<td>&nbsp&nbsp&nbsp&nbsp
+</td>
+<td><font size=6 color="gold"><p align=center><b>PanCard Validation</b></p></font></td></tr>
+</table>
+<form name="pan">
+
+<table width="40%" align="center"></br></br>
+<tr><td>First Name</td>
+<td><input type="text" maxlength="20" name="fname" required></td></tr>
+<tr><td>Last Name</td>
+<td><input type="text" maxlength="20" name="lname" required></td></tr>
+<tr><td>Mobile Number</td>
+<td><input type="number" name="mobile"></td></tr>
+<tr><td>Address</td>
+<td><textarea rows="8" cols="30" name="add"></textarea></td></tr>
+<tr><td>Email ID</td>
+<td><input type="text" name="email"></td></tr>
+<tr><td>PanCard Number</td>
+<td><input type="text" ID="textPanNo" MaxLength="10" onClick="ValidatePAN(obj)" required></td></tr>
+</table></br></br>
+
+<center><input type="button" value="Validate pan" onClick="ValidatePAN()"></center>
+<center><input type="reset" value="Clear Form" id="res" class="btn" onclick="clear()" /></center>
+</form>
+
+<h><b>NOTE:PanNumber should appear</b></h>
+<ul>
+<li>First 5 characters should be a alphabet either uppercase or lowercase.</li>
+<li>Then 4 characters should be a number.</li>
+<li>Last one character should be a uppercase alphabet.</li>
+</ul>
+</body>
+</html>
